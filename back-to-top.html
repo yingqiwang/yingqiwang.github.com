@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <script src="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<style>
+body{height:2000px; font-family: '微软雅黑'}
+p{text-align: center;margin-top: 200px;font-size: 48px;}
+	#top{
+		width:120px;
+		height: 150px;
+		position: fixed;
+		top:400px;
+		right:20px;
+		background: url(http://www.gbtags.com/gb/networks/uploadimgthumb/a3a5edca-47b5-457c-824c-3830527a95c9.png);
+		background-position:0px 0;   
+		text-indent: -9999px;
+		cursor: pointer;
+		display: none;
+	}
+	.fei{
+		width:20px;
+		height:145px;
+		border-radius:10px 35px;
+		background: #3281f6;
+		position: fixed;
+		top:415px;
+		right:110px;
+		display: none;
+		text-align: center;
+		padding:5px;
+		color: #eee;
+	}
+	.fei:after{
+		content: "";
+		width:0;
+		height: 0;
+		position: fixed;
+		top:475px;
+		right:90px;
+		border-width:10px;
+		border-style:solid;
+		border-color: transparent transparent  transparent #3281f6;
+	}
+</style>
+<script>
+	$(function(){
+		$(window).scroll(function(){
+			if($(window).scrollTop()>10){
+				$("#top").css("display","block");
+			}else{
+				$("#top").css("display","none");
+			}
+		});
+		$("#top").mouseover(function(){
+			$(this).css("background-position","-149px 0")
+			$(".fei").css("display","block");
+		});
+		$("#top").mouseout(function(){
+			$(this).css("background-position","0 0");
+			$(".fei").css("display","none");
+		});
+		$("#top").click(function(){
+			$("html,body").animate({scrollTop:0},300)
+			$(".fei").css("display","none");
+		});
+	});
+</script>
+<body>
+	<p>极客标签</p>
+	<p>极客标签</p>
+	<p>极客标签</p>
+	<p>极客标签</p>
+	<p>极客标签</p>
+	<p>极客标签</p>
+	<div id="top">返回顶部</div>
+	<span class="fei">带你装逼带你飞</span>
+</body>
+</html>
